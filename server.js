@@ -13,6 +13,7 @@ const conn = mySQL.createConnection({
   host: 'localhost',
   password: 'hello',
   database: 'reddit',
+  port: '4040',
   multipleStatements: true,
 });
 
