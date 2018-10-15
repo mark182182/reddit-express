@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>reddit: the front page of the internet</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand"
+      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen:300"
+      rel="stylesheet">
+    <script type="text/javascript" src="assets/js/reddit-modify.js"></script>
+  </head>
+
+  <body>
+    <img class="bg-image" src="./assets/css/background.png">
+    <p id="head-title"> All Our Gods Have Abandoned Us</p>
+    <div id="new-post-container">
+      <div id="title-holder">
+        <div><font color="red">*</font><font color="white">Title</font><input
+            type="text" id="post-title"
+            name="post-title"
+            pattern="[A-Za-z\s]+"
+            maxlength="60" minlength="2" required /></div>
+      </div>
+      <div id="url-holder">
+        <div>
+          <font color="white">URL</font><input id="post-url"
+            name="url" /></div>
+      </div>
+      <div>
+        <button id="submit-button" class="button"> MODIFY POST</button>
+        <button id="back-button" class="button"> Back </button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,247 @@
+body {
+  margin: 0 auto;
+  background-color: #222;
+}
+
+.content-holder {
+  font-family: 'Oxygen', sans-serif;
+  margin: 0 40px;
+}
+
+.bg-image {
+  align-content: center;
+  width: 100%;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#navbar p {
+  color: #FFFFFF;
+}
+
+#button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#login-create-user-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+}
+
+#logout-container {
+  padding-right: 10px;
+}
+
+#login-container {
+  padding-right: 10px;
+}
+
+#submit-container {
+  display: flex;
+  align-items: center;
+  padding-top: 12px;
+  width: 120px;
+  height: 40px;
+}
+
+.upvote-button {
+  background-image: url(upvote.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-color: transparent;
+  height: 15px;
+  width: 14px;
+  border: none;
+}
+
+.downvote-button {
+  background-image: url(downvote.png  );
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-color: transparent;
+  height: 15px;
+  width: 14px;
+  border: none;
+}
+
+#head-title {
+  display: flex;
+  justify-content: center;
+  margin-top: -10%;
+  margin-bottom: 10%;
+  font-family: 'Quicksand', sans-serif;
+  opacity: 1;
+}
+
+#head-title:hover {
+  opacity: 0;
+  transition: opacity 0.2s 0.5s ease;
+}
+
+#posts-info-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 60%;
+}
+
+.post {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1%;
+  border: 1px solid #CCCCCC;
+  background-color: #FFFFFF;
+  border-collapse: collapse;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.button-holder {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  background-color: rgb(124, 124, 124);
+}
+
+.button-holder p {
+  font-size: larger;
+  text-shadow: rgba(0, 0, 0, 0.4) 2px 0px;
+  color: #B6B6B6;
+}
+
+.posts-holder {
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.posts-holder a {
+  font-family: 'Quicksand', sans-serif;
+  text-decoration: none;
+}
+
+.posts-holder a:hover {
+  opacity: 0.5;
+}
+
+.posts-holder * {
+  margin-bottom: 10px;
+}
+
+.post-action-holder {
+  display: flex;
+}
+
+.button {
+  padding: 8px;
+  font-weight: 300;
+  color: #FFFFFF;
+  border: none;
+  background-color: rgba(25, 25, 112, 0.904);
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset rgba(0, 0, 0, 0.5) 0 -1px 0 0, inset rgba(255, 255, 255, 0.5) 0 1px 0;
+}
+
+.button:hover {
+  background-color: rgb(30, 30, 131);
+}
+
+.button:active {
+  background-color: rgb(17, 17, 80);
+}
+
+.modify-post {
+  padding: 8px;
+}
+
+.delete-post {
+  margin-left: 10px;
+}
+
+.comment-post {
+  margin-left: 10px;
+}
+
+#subreddit-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FEFEFE;
+  width: 300px;
+  height: 340px;
+  border: 1px solid #CCCCCC;
+  background-color: #FFFFFF;
+  border-collapse: collapse;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+#information-text {
+  text-align: center;
+  margin: 0 6px;
+}
+
+#footer-text {
+  text-align: center;
+  font-size: xx-small;
+  color: #FFFFFF;
+}
+
+#new-post-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#title-holder {
+  padding-bottom: 12px;
+}
+
+#url-holder {
+  padding-bottom: 12px;
+}
+
+.creation-content-holder * {
+  margin-bottom: 12px;
+  margin-left: 12px;
+}
+
+.posts-comment-holder {
+  margin: 0 40px;
+}
+
+#comment-container {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+#comment-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  border: 1px solid #CCCCCC;
+  background-color: #FFFFFF;
+  border-collapse: collapse;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+#post-url, #post-title {
+  margin-left: 12px;
+}
