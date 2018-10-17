@@ -35,7 +35,7 @@ window.onload = () => {
           else {
             makeText.innerHTML = 'Successful';
             window.location = `/`;
-          }()
+          }
         }
       }
       http.send(JSON.stringify({ owner: getUsername['value'], password: getPassword['value'] }));
