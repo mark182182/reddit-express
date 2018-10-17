@@ -3,17 +3,17 @@ const app = express();
 const bodyParser = require('body-parser');
 const mySQL = require('mysql');
 const path = require('path');
-const PORT = 3000;
+const PORT = process.env.SERV_PORT;
 
 app.use(bodyParser.json());
 app.use('/assets', express.static('assets'));
 
 const conn = mySQL.createConnection({
-  host     : process.env.RDS_HOSTNAME,
-  user     : process.env.RDS_USERNAME,
-  password : process.env.RDS_PASSWORD,
-  database : process.env.EBS_DATABASE,
-  port     : process.env.RDS_PORT,
+  host     : process.env.HOSTNAME,
+  user     : process.env.USERNAME,
+  password : process.env.PASSWORD,
+  database : process.env.DATABASE,
+  port     : process.env.PORT,
   multipleStatements: true,
 });
 
