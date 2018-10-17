@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use('/assets', express.static('assets'));
 
 const conn = mySQL.createConnection({
-  host     : process.env.HOSTNAME,
+  host     : "mariadb.c9fog5stziuo.eu-central-1.rds.amazonaws.com",
   user     : process.env.USERNAME,
   password : process.env.PASSWORD,
   database : process.env.DATABASE,
