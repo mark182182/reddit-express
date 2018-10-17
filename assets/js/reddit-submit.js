@@ -1,22 +1,21 @@
 window.onload = () => {
   if (localStorage.getItem('username') !== null) {
-    const host = 'http://localhost:3000';
     const http = new XMLHttpRequest();
-    http.open('GET', `${host}/submit`, true);
+    http.open('GET', `/submit`, true);
 
     http.onload = () => {
       if (http.status === 200) {
         const getSubmitButton = document.querySelector('#submit-button');
-        getSubmitButton.addEventListener('click', sendPost.bind(null, host), false);
+        getSubmitButton.addEventListener('click', sendPost, false);
 
         const getBackButton = document.querySelector('#back-button');
-        getBackButton.addEventListener('click', () => { window.location = `${host}` }, false);
+        getBackButton.addEventListener('click', () => { window.location = `/` }, false);
       }
     }
     http.send();
-    function sendPost(host) {
+    function sendPost() {
       const http = new XMLHttpRequest();
-      http.open('POST', `${host}/posts`, true);
+      http.open('POST', `/posts`, true);
       http.setRequestHeader("Content-Type", "application/json");
       const getTitle = document.querySelector('#post-title')['value'];
       const getUrl = document.querySelector('#post-url')['value'];
@@ -26,7 +25,7 @@ window.onload = () => {
       }
       else {
         http.send(JSON.stringify({ title: getTitle, url: getUrl, username: getUsername }));
-        window.location = `${host}`;
+        window.location = `/`;
       }
     };
   }

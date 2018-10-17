@@ -1,8 +1,7 @@
 window.onload = () => {
   if (localStorage.getItem('username') !== null) {
-    const host = 'http://localhost:3000';
     const http = new XMLHttpRequest();
-    http.open('GET', `${host}/comment`, true);
+    http.open('GET', `/comment`, true);
 
     http.onload = () => {
       if (http.status === 200) {
@@ -26,7 +25,7 @@ window.onload = () => {
         let upVoteButton = document.createElement('button');
         newButtonHolder.appendChild(upVoteButton);
         upVoteButton.classList.add('upvote-button');
-        upVoteButton.addEventListener('click', upVote.bind(null, postId, host), false);
+        upVoteButton.addEventListener('click', upVote.bind(null, postId, ), false);
 
         let scoreInfo = document.createElement('p');
         newButtonHolder.appendChild(scoreInfo);
@@ -35,7 +34,7 @@ window.onload = () => {
         let downVoteButton = document.createElement('button');
         newButtonHolder.appendChild(downVoteButton);
         downVoteButton.classList.add('downvote-button');
-        downVoteButton.addEventListener('click', downVote.bind(null, postId, host), false);
+        downVoteButton.addEventListener('click', downVote.bind(null, postId, ), false);
 
         let newPostsHolder = document.createElement('div');
         newPostsHolder.classList.add('posts-holder');
@@ -51,8 +50,8 @@ window.onload = () => {
         newInfo.classList.add(`info`);
         newPostsHolder.appendChild(newInfo);
 
-        getPostOwner(host, postId);
-        getComments(host, postId);
+        getPostOwner(, postId);
+        getComments(, postId);
 
         if (((Date.now() - Date.parse(postTime)) / 1000) < 1) {
           newInfo.innerHTML = 'Post created by ' + username + ' ' + ' now.';
@@ -76,13 +75,13 @@ window.onload = () => {
 
         getSubmitButton.addEventListener('click', sendComment.bind(null, username, postId), false);
         const getBackButton = document.querySelector('#back-button');
-        getBackButton.addEventListener('click', () => { window.location = `${host}` }, false);
+        getBackButton.addEventListener('click', () => { window.location = `/` }, false);
 
       }
     }
     http.send();
-    function upVote(postId, host) {
-      fetch(`${host}/posts/${postId}/upvote`, {
+    function upVote(postId, ) {
+      fetch(`/posts/${postId}/upvote`, {
         method: 'put',
       }).then((resp) => (resp.body));
 
@@ -92,8 +91,8 @@ window.onload = () => {
       getUpvoteButton.style.backgroundImage = 'url(../assets/css/upvoted.png)';
     }
 
-    function downVote(postId, host) {
-      fetch(`${host}/posts/${postId}/downvote`, {
+    function downVote(postId, ) {
+      fetch(`/posts/${postId}/downvote`, {
         method: 'put',
       }).then((resp) => (resp.body));
 
@@ -103,8 +102,8 @@ window.onload = () => {
       getDownvoteButton.style.backgroundImage = 'url(../assets/css/downvoted.png)';
     }
 
-    function getComments(host, postId) {
-      fetch(`${host}/comment/${postId}`, {
+    function getComments(, postId) {
+      fetch(`/comment/${postId}`, {
         method: 'get'
       }).then((resp) => resp.json().then(resp => {
         for (let index = 0; index < resp.comments.length; index++) {
@@ -149,7 +148,7 @@ window.onload = () => {
         alert('Please write a comment!');
       }
       else {
-        fetch(`${host}/comment/${postId}`, {
+        fetch(`/comment/${postId}`, {
           method: 'post',
           headers: { "Content-Type": "application/json; charset=utf-8" },
           body: JSON.stringify({ owner, comment })
@@ -158,8 +157,8 @@ window.onload = () => {
       }
     }
 
-    function getPostOwner(host, postId) {
-      fetch(`${host}/comment/${postId}/owner`, {
+    function getPostOwner(, postId) {
+      fetch(`/comment/${postId}/owner`, {
         method: 'get'
       }).then(response => {
         console.log(response);

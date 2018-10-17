@@ -1,17 +1,16 @@
 window.onload = () => {
-  const host = 'http://localhost:3000';
   const http = new XMLHttpRequest();
-  http.open('GET', `${host}/posts`, true);
+  http.open('GET', `/posts`, true);
 
   http.onload = () => {
     if (http.status === 200) {
       const context = JSON.parse(http.response);
-      getPosts(context, host);
+      getPosts(context);
     }
   }
   http.send();
 
-  function getPosts(context, host) {
+  function getPosts(context) {
     const getPostsContainer = document.querySelector('.posts-container');
     for (let index = 0; index < context.length; index++) {
 
@@ -26,7 +25,7 @@ window.onload = () => {
       let upVoteButton = document.createElement('button');
       newButtonHolder.appendChild(upVoteButton);
       upVoteButton.classList.add('upvote-button');
-      upVoteButton.addEventListener('click', upVote.bind(null, context, index, host), false);
+      upVoteButton.addEventListener('click', upVote.bind(null, context, index), false);
 
       let scoreInfo = document.createElement('p');
       newButtonHolder.appendChild(scoreInfo);
@@ -35,7 +34,7 @@ window.onload = () => {
       let downVoteButton = document.createElement('button');
       newButtonHolder.appendChild(downVoteButton);
       downVoteButton.classList.add('downvote-button');
-      downVoteButton.addEventListener('click', downVote.bind(null, context, index, host), false);
+      downVoteButton.addEventListener('click', downVote.bind(null, context, index), false);
 
       let newPostsHolder = document.createElement('div');
       newPostsHolder.classList.add('posts-holder');
@@ -83,14 +82,14 @@ window.onload = () => {
           localStorage.setItem("currentElement", context[index].id);
           localStorage.setItem("currentTitle", context[index].title);
           localStorage.setItem("currentURL", context[index].url);
-          window.location = `${host}/modify`
+          window.location = `/modify`
         }, false);
 
         let deleteElement = document.createElement('button');
         postActionHolder.appendChild(deleteElement);
         deleteElement.innerHTML = 'Remove';
         deleteElement.classList.add('delete-post', 'button');
-        deleteElement.addEventListener('click', deletePost.bind(null, context, index, host, getPostsContainer), false);
+        deleteElement.addEventListener('click', deletePost.bind(null, context, index, getPostsContainer), false);
       }
       if (localStorage.getItem('username') !== null) {
         let commentElement = document.createElement('button');
@@ -103,20 +102,20 @@ window.onload = () => {
           localStorage.setItem("currentURL", context[index].url);
           localStorage.setItem("currentScore", context[index].score);
           localStorage.setItem("currentTimestamp", context[index].timestamp);
-          window.location = `${host}/comment`
+          window.location = `/comment`
         }, false);
       }
     }
     const submitButton = document.querySelector('#submit-button');
-    submitButton.addEventListener('click', () => { window.location = `${host}/submit` }, false);
+    submitButton.addEventListener('click', () => { window.location = `/submit` }, false);
 
     makeLogout();
 
     const loginButton = document.querySelector('#login-button');
-    loginButton.addEventListener('click', () => { window.location = `${host}/login` }, false);
+    loginButton.addEventListener('click', () => { window.location = `/login` }, false);
 
     const createButton = document.querySelector('#create-button');
-    createButton.addEventListener('click', () => { window.location = `${host}/create` }, false);
+    createButton.addEventListener('click', () => { window.location = `/create` }, false);
 
     if (localStorage.getItem('username') !== null) {
       const loginCreateUser = document.querySelector('#login-create-user-container');
@@ -126,8 +125,8 @@ window.onload = () => {
     }
   }
 
-  function deletePost(context, index, host, getPostsContainer) {
-    fetch(`${host}/posts/${context[index].id}`, {
+  function deletePost(context, index, getPostsContainer) {
+    fetch(`/posts/${context[index].id}`, {
       method: 'delete',
     }).then((resp) => (resp.body));
 
@@ -138,8 +137,8 @@ window.onload = () => {
     }, 1000);
   }
 
-  function upVote(context, index, host) {
-    fetch(`${host}/posts/${context[index].id}/upvote`, {
+  function upVote(context, index) {
+    fetch(`/posts/${context[index].id}/upvote`, {
       method: 'put',
     }).then((resp) => (resp.body));
 
@@ -149,8 +148,8 @@ window.onload = () => {
     getUpvoteButton.style.backgroundImage = 'url(../assets/css/upvoted.png)';
   }
 
-  function downVote(context, index, host) {
-    fetch(`${host}/posts/${context[index].id}/downvote`, {
+  function downVote(context, index) {
+    fetch(`/posts/${context[index].id}/downvote`, {
       method: 'put',
     }).then((resp) => (resp.body));
 
@@ -184,7 +183,7 @@ window.onload = () => {
       localStorage.removeItem('username');
       alert('Logout successful.');
       logoutButton.style.visibility = 'hidden';
-      window.location = `${host}`;
+      window.location = `/`;
     }, false);
   }
 }

@@ -9,11 +9,11 @@ app.use(bodyParser.json());
 app.use('/assets', express.static('assets'));
 
 const conn = mySQL.createConnection({
-  user: 'root',
-  host: 'localhost',
-  password: 'hello',
-  database: 'reddit',
-  port: '4040',
+  host     : process.env.RDS_HOSTNAME,
+  user     : process.env.RDS_USERNAME,
+  password : process.env.RDS_PASSWORD,
+  database : process.env.EBS_DATABASE,
+  port     : process.env.RDS_PORT,
   multipleStatements: true,
 });
 

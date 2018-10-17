@@ -1,7 +1,6 @@
 window.onload = () => {
-  const host = 'http://localhost:3000';
   const http = new XMLHttpRequest();
-  http.open('GET', `${host}/create`, true);
+  http.open('GET', `/create`, true);
 
   http.onload = () => {
     if (http.status === 200) {
@@ -12,16 +11,16 @@ window.onload = () => {
       let makeText = document.createElement('p');
       getContentHolder.appendChild(makeText);
       makeText.style.color = 'white';
-      getLoginButton.addEventListener('click', sendAccountDetails.bind(null, host, getUsername, getPassword, makeText), false);
+      getLoginButton.addEventListener('click', sendAccountDetails.bind(null, getUsername, getPassword, makeText), false);
 
       const getBackButton = document.querySelector('#back-button');
-      getBackButton.addEventListener('click', () => { window.location = `${host}` }, false);
+      getBackButton.addEventListener('click', () => { window.location = `/` }, false);
     }
   }
   http.send();
-  function sendAccountDetails(host, getUsername, getPassword, makeText) {
+  function sendAccountDetails(getUsername, getPassword, makeText) {
     const http = new XMLHttpRequest();
-    http.open('POST', `${host}/create`, true);
+    http.open('POST', `/create`, true);
     http.setRequestHeader("Content-Type", "application/json");
     if (getUsername['value'] === "" || getPassword['value'] === "") {
       alert('Please provide information!');
@@ -35,8 +34,8 @@ window.onload = () => {
           }
           else {
             makeText.innerHTML = 'Successful';
-            window.location = `${host}`;
-          }
+            window.location = `/`;
+          }()
         }
       }
       http.send(JSON.stringify({ owner: getUsername['value'], password: getPassword['value'] }));
