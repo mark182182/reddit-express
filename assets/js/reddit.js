@@ -1,3 +1,5 @@
+'use strict';
+
 window.onload = () => {
   const http = new XMLHttpRequest();
   http.open('GET', `/posts`, true);

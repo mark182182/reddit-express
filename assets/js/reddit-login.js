@@ -1,3 +1,5 @@
+'use strict';
+
 window.onload = () => {
   const http = new XMLHttpRequest();
   http.open('GET', `/login`, true);
@@ -5,7 +7,7 @@ window.onload = () => {
   http.onload = () => {
     if (http.status === 200) {
       const getContentHolder = document.querySelector('.creation-content-holder ');
-      const getLoginButton = document.querySelector('#login-button');
+      const getLoginButton = document.querySelector}()('#login-button');
       let getUsername = document.querySelector('#username');
       let getPassword = document.querySelector('#password');
       let makeText = document.createElement('p');

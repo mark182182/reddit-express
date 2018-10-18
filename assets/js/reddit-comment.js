@@ -1,3 +1,5 @@
+'use strict';
+
 window.onload = () => {
   if (localStorage.getItem('username') !== null) {
     const http = new XMLHttpRequest();
@@ -47,11 +49,12 @@ window.onload = () => {
         newPost.setAttribute('href', postUrl);
 
         let newInfo = document.createElement('div');
-        newInfo.classList.add(`info`);
+        newInfo.classList.add
+        (`info`);
         newPostsHolder.appendChild(newInfo);
 
-        getPostOwner(, postId);
-        getComments(, postId);
+        getPostOwner(postId);
+        getComments(postId);
 
         if (((Date.now() - Date.parse(postTime)) / 1000) < 1) {
           newInfo.innerHTML = 'Post created by ' + username + ' ' + ' now.';
@@ -80,7 +83,7 @@ window.onload = () => {
       }
     }
     http.send();
-    function upVote(postId, ) {
+    function upVote(postId) {
       fetch(`/posts/${postId}/upvote`, {
         method: 'put',
       }).then((resp) => (resp.body));
@@ -91,7 +94,7 @@ window.onload = () => {
       getUpvoteButton.style.backgroundImage = 'url(../assets/css/upvoted.png)';
     }
 
-    function downVote(postId, ) {
+    function downVote(postId) {
       fetch(`/posts/${postId}/downvote`, {
         method: 'put',
       }).then((resp) => (resp.body));
@@ -102,7 +105,7 @@ window.onload = () => {
       getDownvoteButton.style.backgroundImage = 'url(../assets/css/downvoted.png)';
     }
 
-    function getComments(, postId) {
+    function getComments(postId) {
       fetch(`/comment/${postId}`, {
         method: 'get'
       }).then((resp) => resp.json().then(resp => {
@@ -157,7 +160,7 @@ window.onload = () => {
       }
     }
 
-    function getPostOwner(, postId) {
+    function getPostOwner(postId) {
       fetch(`/comment/${postId}/owner`, {
         method: 'get'
       }).then(response => {

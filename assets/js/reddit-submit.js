@@ -1,3 +1,5 @@
+'use strict';
+
 window.onload = () => {
   if (localStorage.getItem('username') !== null) {
     const http = new XMLHttpRequest();
