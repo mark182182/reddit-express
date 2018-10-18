@@ -162,8 +162,8 @@ window.onload = () => {
   }
 
   function makeLogout() {
-    loginText = document.createElement('p');
-    const logoutButton = document.querySelector('#logout-button');
+    const loginText = document.createElement('p'),
+    logoutButton = document.querySelector('#logout-button');
     logoutButton.style.visibility = 'hidden';
 
     if (localStorage.getItem('username') === null) {
