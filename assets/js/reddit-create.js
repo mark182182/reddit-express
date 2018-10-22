@@ -18,7 +18,7 @@ window.onload = () => {
       const getBackButton = document.querySelector('#back-button');
       getBackButton.addEventListener('click', () => { window.location = `/` }, false);
     }
-  }
+  };
   http.send();
   function sendAccountDetails(getUsername, getPassword, makeText) {
     const http = new XMLHttpRequest();
@@ -39,8 +39,8 @@ window.onload = () => {
             window.location = `/`;
           }
         }
-      }
+      };
       http.send(JSON.stringify({ owner: getUsername['value'], password: getPassword['value'] }));
     }
   }
-}
+};

@@ -15,7 +15,7 @@ window.onload = () => {
       makeText.style.color = 'white';
       getLoginButton.addEventListener('click', sendAccountDetails.bind(null, getUsername, getPassword, makeText), false);
     }
-  }
+  };
   http.send();
   function sendAccountDetails(getUsername, getPassword, makeText) {
     const http = new XMLHttpRequest();
@@ -42,8 +42,8 @@ window.onload = () => {
             window.location = `/`;
           }
         }
-      }
+      };
       http.send(JSON.stringify({ owner: getUsername['value'], password: getPassword['value'] }));
     }
   }
-}
+};

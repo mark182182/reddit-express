@@ -18,7 +18,7 @@ window.onload = () => {
         const getBackButton = document.querySelector('#back-button');
         getBackButton.addEventListener('click', () => { window.location = `/` }, false);
       }
-    }
+    };
     http.send();
     function sendPost(getTitle, getUrl, getUsername) {
       const http = new XMLHttpRequest();
@@ -32,6 +32,6 @@ window.onload = () => {
         http.send(JSON.stringify({ title: getTitle['value'], url: getUrl['value'], username: getUsername }));
         window.location = `/`;
       }
-    };
+    }
   }
-}
+};

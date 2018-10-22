@@ -223,18 +223,6 @@ function voteChange(req, res, operation) {
   getRows(req, res, `WHERE id = ${postId} `);
 }
 
-function getCurrentPost(req, res) {
-  const id = req.params.id;
-  conn.query(`SELECT * from posts2 WHERE id = ?`, [id], function (err, rows) {
-    if (err) {
-      console.log(err.toString());
-      res.status(500).send('Database error');
-      return;
-    }
-    res.status(200).json(rows);
-  });
-}
-
 function getRows(req, res, queryParameter) {
   conn.query(`SELECT * from posts2 ${queryParameter} ORDER BY timestamp DESC `, function (err, rows) {
     if (err) {

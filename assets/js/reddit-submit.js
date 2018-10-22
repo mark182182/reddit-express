@@ -13,7 +13,7 @@ window.onload = () => {
         const getBackButton = document.querySelector('#back-button');
         getBackButton.addEventListener('click', () => { window.location = `/` }, false);
       }
-    }
+    };
     http.send();
     function sendPost() {
       const http = new XMLHttpRequest();
@@ -29,6 +29,6 @@ window.onload = () => {
         http.send(JSON.stringify({ title: getTitle, url: getUrl, username: getUsername }));
         window.location = `/`;
       }
-    };
+    }
   }
-}
+};

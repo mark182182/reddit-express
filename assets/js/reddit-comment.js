@@ -27,7 +27,7 @@ window.onload = () => {
         let upVoteButton = document.createElement('button');
         newButtonHolder.appendChild(upVoteButton);
         upVoteButton.classList.add('upvote-button');
-        upVoteButton.addEventListener('click', upVote.bind(null, postId, ), false);
+        upVoteButton.addEventListener('click', upVote.bind(null, postId, false));
 
         let scoreInfo = document.createElement('p');
         newButtonHolder.appendChild(scoreInfo);
@@ -36,7 +36,7 @@ window.onload = () => {
         let downVoteButton = document.createElement('button');
         newButtonHolder.appendChild(downVoteButton);
         downVoteButton.classList.add('downvote-button');
-        downVoteButton.addEventListener('click', downVote.bind(null, postId, ), false);
+        downVoteButton.addEventListener('click', downVote.bind(null, postId, false));
 
         let newPostsHolder = document.createElement('div');
         newPostsHolder.classList.add('posts-holder');

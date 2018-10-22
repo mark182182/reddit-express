@@ -9,7 +9,7 @@ window.onload = () => {
       const context = JSON.parse(http.response);
       getPosts(context);
     }
-  }
+  };
   http.send();
 
   function getPosts(context) {
@@ -188,4 +188,4 @@ window.onload = () => {
       window.location = `/`;
     }, false);
   }
-}
+};
