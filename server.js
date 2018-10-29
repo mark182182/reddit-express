@@ -1,7 +1,7 @@
 'use strict';
 
 require('dotenv').config();
-
+console.log("Webhook test.");
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
